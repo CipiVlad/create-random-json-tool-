@@ -1,0 +1,20 @@
+{
+  "name": "ranjson",
+  "version": "1.0.0",
+  "description": "simple random json data",
+  "main": "index.js",
+  "bin": "./index.js",
+  "type": "module",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "clipboardy": "^3.0.0",
+    "commander": "^9.4.1",
+    "fs-extra": "^11.1.0"
+  }
+}
