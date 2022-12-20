@@ -4,10 +4,11 @@
 
 //todos ---------------------------------------------------------
 
-//* copy to clipboard
+/////* save to file
+/////* copy to clipboard
 //* open <newfile> in VSCode --> "code ."
 //* if "ranjson -s" to existing file append json data without "[]"
-//* warning if "ranjson -s" to existing file! ask if user really wants to existing file. if yes: append, if not: cancel command!
+//* warning if "ranjson -s" to existing file! ask if user really wants to add to existing file. if yes: append, if not: cancel command!
 
 // ---------------------BUGFIX-----------------------------------
 
@@ -42,9 +43,10 @@ import clipboard from 'clipboardy';
 
 // ------****-PROGRAGM--CONFIGS,-OPTIONS,-ERRORS-****------------
 
+
 program
     // config
-    .name("ranjson")
+    // .name("ranjson")
     .version('1.0.0')
     .usage('-[option]')
     .description('Description: Simple random JSON Output. Type ranjson followed by "Options"')
@@ -54,13 +56,14 @@ program
     .option('-sh,   --shuffle', 'shuffled random json length')
     .option('-sa,   --say <number>', 'say how many random json, 1-20 in ordered list')
     .option('-s,    --save <string>', 'save  to new file by adding <filename>. By saving to same file, json data will be simply appended')
-    .option('-cp,   --clip', 'copy json')
+    .option('-cp,   --clip', 'copy json to clipboard')
 
     // error handling
     .addHelpText('after', `Example call: ranjson -si`)
     .showHelpAfterError('(add --help for additional information)')
 
     // run
+
     .parse()
 
 //* programm.opts()
@@ -135,10 +138,9 @@ if (say) {
 
 
 // -------------------------------------------------------
-//? save option to file: <filename>.json
-
-const saveToNewFile = (name, password) => {
-    fs.open(path.join('./store', name + '.json'), 'a', 666, (e, id) => {
+//? save JSON to file 
+export const saveToNewFile = (name, password) => {
+    fs.open(path.join('./', name + '.json'), 'a', 666, (e, id) => {
         fs.write(id, password + os.EOL, null, 'utf-8', () => {
             fs.close(id, () => {
                 console.log(chalk.bgBlueBright(' Saved as ' + name + '.json'));
@@ -146,6 +148,8 @@ const saveToNewFile = (name, password) => {
         })
     })
 }
+
+
 
 if (save) {
     saveToNewFile(save, toJSON)
@@ -155,6 +159,5 @@ if (save) {
 //? copy to clipboard 
 
 if (clip) {
-    let text = 'hi'
     clipboard.writeSync(toJSON)
 }
