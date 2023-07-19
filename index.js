@@ -33,7 +33,7 @@ const program = new Command();
 //nodejs
 import fs from 'fs'
 import path from 'path'
-import os, { loadavg } from 'os'
+import os from 'os'
 
 //utils
 import chalk from 'chalk';
@@ -46,7 +46,7 @@ import clipboard from 'clipboardy';
 
 program
     // config
-    // .name("ranjson")
+    .name("ranjson")
     .version('1.0.0')
     .usage('-[option]')
     .description('Description: Simple random JSON Output. Type ranjson followed by "Options"')
