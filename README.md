@@ -1,6 +1,6 @@
 //* Simple CLI Tool for creating random JSON data. Created with "commander".
 
-Run "ransom -h" for detailed usage description.
+Run "ranjson -h" for detailed usage description.
 
 
 <img src='/ranjson -h.png'>
